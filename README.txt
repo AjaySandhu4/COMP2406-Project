@@ -1,4 +1,4 @@
-Ajay Sandhu (101185232) Assignment 4
+Ajay Sandhu Assignment 4
 
 Instructions to run:
     Node, NPM and MongoDB need to be installed in order to run application.
