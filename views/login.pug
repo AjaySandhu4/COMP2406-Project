@@ -1,0 +1,17 @@
+doctype html 
+html
+    head 
+        title Login
+    body
+        include header.pug 
+
+        h4 Please enter your username and password to login...
+        
+        p Username:
+            input#username(type="textbox")
+        p Password:
+            input#password(type="password")
+
+        button#login(type="button") Login
+
+        script(src="/login-client.js")

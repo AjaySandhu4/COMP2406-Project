@@ -1,0 +1,42 @@
+doctype html 
+html
+    head 
+        title=user._id
+    body(onload="init()")
+        include header.pug
+
+        h1=user.username
+        if session.loggedin 
+            - var doesLoginMatch = session.userId.toString() == user._id.toString();
+        else 
+            - var doesLoginMatch = false;
+
+        span(hidden)#loginmatch #{doesLoginMatch}
+        span(hidden)#userpriv #{user.privacy}
+        
+        p ID:   
+            span#id #{user._id}
+
+        if doesLoginMatch 
+            label(for="privacy") 
+                strong Privacy
+            form(name="privacy" id="privacyForm")
+                input(type="radio" id="true" name="privacy" value="true")
+                label(for="true") True
+                br
+                input(type="radio" id="false" name="privacy" value="false")
+                label(for="false") False
+                br
+            button#savePriv Save   
+
+            br
+            br
+        p 
+            strong Order History:
+        if userOrders.length > 0
+            each order in userOrders 
+                a(href="/orders/"+order._id) #{order._id}
+                br
+
+        script(src="/user-client.js")
+        

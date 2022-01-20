@@ -1,0 +1,19 @@
+div(class="table" style="width: 100%; display: table; margin: auto")
+    div(style="width: 100%; display: table-row")
+        div(style="width:5%; display: table-cell;") 
+            a(href="/") Home
+        div(style="width:5%; display: table-cell;") 
+            a(href="/users") Users
+        if session.loggedin
+            div(style="width: 7%; display: table-cell;")
+                a(href="/orderform") Orderform
+            div(style="width: 8%; display: table-cell;") 
+                a(href="/users/"+session.userId) #{session.username}'s Profile
+            div(style="display: table-cell;")
+                a(href="/logout") Logout
+        else 
+            div(style="width: 5%; display: table-cell;")
+                a(href="/login") Login
+            div(style="display: table-cell;")
+                a(href="/register") Register
+br

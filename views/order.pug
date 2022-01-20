@@ -1,0 +1,22 @@
+doctype html
+html
+    head
+        title Order by #{order.userName}
+
+    body
+        include header.pug 
+
+        h1 Order Summary
+
+        p Placed by: #{order.userName}
+        p Restaurant Name:  #{order.restaurantName}
+        p Subtotal: $#{order.subtotal.toFixed(2)}
+        p Tax: $#{order.tax.toFixed(2)}
+        p Delivery Fee: $#{order.fee.toFixed(2)}
+        p Total: $#{order.total.toFixed(2)}
+        
+        br
+
+        h4 Items Ordered:
+        for item in order.order 
+            p #{item.quantity} x #{item.name}

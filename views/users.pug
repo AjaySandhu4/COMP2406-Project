@@ -1,0 +1,13 @@
+doctype html 
+html
+    head 
+        title Users Directory
+    body
+        include header.pug
+
+        h1 Users 
+
+        if users.length > 0
+            each user in users
+                a(href="/users/"+user._id) #{user.username}
+                br
